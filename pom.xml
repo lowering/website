@@ -58,7 +58,6 @@
 	<modules>
 		<module>root</module>
 	</modules>
-
 	<build>
 		<plugins>
 			<plugin>
