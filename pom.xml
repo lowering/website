@@ -40,24 +40,47 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
+			<scope>${jar.scope}</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+			<scope>${jar.scope}</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
+			<scope>${jar.scope}</scope>
 		</dependency>
 	</dependencies>
 
 	<modules>
 		<module>root</module>
 	</modules>
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<properties>
+				<jar.scope>compile</jar.scope>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>openshift</id>
+			<properties>
+				<jar.scope>provided</jar.scope>
+			</properties>
+		</profile>
+	</profiles>
+
 	<build>
 		<plugins>
 			<plugin>
